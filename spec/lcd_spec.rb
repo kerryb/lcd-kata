@@ -1,23 +1,22 @@
 require "lcd"
 
-describe Lcd do
-  it "can display 0" do
-    expect(subject.display 0).to eq <<-EOF
- - 
-| |
-   
-| |
- - 
-    EOF
-  end
+DIGITS = <<EOF.gsub(".", " ").lines.each_slice(5).map(&:join)
+.-.
+|.|
+...
+|.|
+.-.
+...
+..|
+...
+..|
+...
+EOF
 
-  it "can display 1" do
-    expect(subject.display 1).to eq <<-EOF
-   
-  |
-   
-  |
-   
-    EOF
+describe Lcd do
+  DIGITS.each_with_index do |expected, digit|
+    it "can display #{digit}" do
+      expect(subject.display digit).to eq expected
+    end
   end
 end
