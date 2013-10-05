@@ -1,5 +1,5 @@
 class Lcd
   def display number
-    " - \n| |\n   \n| |\n - \n"
+    number.zero? ? " - \n| |\n   \n| |\n - \n" : "   \n  |\n   \n  |\n   \n"
   end
 end
