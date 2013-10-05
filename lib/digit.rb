@@ -1,0 +1,1 @@
+Digit = Struct.new :segments
