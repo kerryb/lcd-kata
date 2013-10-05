@@ -1,23 +1,16 @@
 require "lcd"
 
 describe Lcd do
-  it "can display 0" do
-    expect(subject.display 0).to eq <<-EOF
- - 
-| |
-   
-| |
- - 
-    EOF
-  end
+  subject { Lcd.new convertor: convertor, renderer: renderer }
+  let(:convertor) { double :convertor }
+  let(:renderer) { double :renderer }
 
-  it "can display 1" do
-    expect(subject.display 1).to eq <<-EOF
-   
-  |
-   
-  |
-   
-    EOF
+  describe "#display" do
+    it "converts and renders each digit" do
+      convertor.stub(:convert).with(1) { "foo" }
+      convertor.stub(:convert).with(2) { "bar" }
+      renderer.stub(:render).with(%w{foo bar}) { "output" }
+      expect(subject.display 12).to eq "output"
+    end
   end
 end
