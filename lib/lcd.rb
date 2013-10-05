@@ -1,3 +1,6 @@
+require "convertor"
+require "renderer"
+
 class Lcd
   def initialize convertor: Convertor.new, renderer: Renderer.new
     @convertor, @renderer = convertor, renderer
