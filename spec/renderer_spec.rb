@@ -5,6 +5,7 @@ describe Renderer do
   let(:digit_renderer) { double :digit_renderer }
   let(:digit_1) { double :digit_1 }
   let(:digit_2) { double :digit_2 }
+  let(:size) { 2 }
 
   it "renders each digit, and joins the lines together" do
     digit_renderer.stub(:render).with(digit_1) { %w[A a] }

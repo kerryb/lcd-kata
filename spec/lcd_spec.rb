@@ -1,7 +1,7 @@
 require "lcd"
 
 describe Lcd do
-  subject { Lcd.new convertor: convertor, renderer: renderer }
+  subject { Lcd.new size: 2, convertor: convertor, renderer: renderer }
   let(:convertor) { double :convertor }
   let(:renderer) { double :renderer }
 

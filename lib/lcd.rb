@@ -2,7 +2,7 @@ require "convertor"
 require "renderer"
 
 class Lcd
-  def initialize convertor: Convertor.new, renderer: Renderer.new
+  def initialize size: 1, convertor: Convertor.new, renderer: Renderer.new(size: size)
     @convertor, @renderer = convertor, renderer
   end
 

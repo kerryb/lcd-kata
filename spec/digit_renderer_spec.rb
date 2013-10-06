@@ -101,5 +101,21 @@ describe DigitRenderer do
         " - ",
       ]
     end
+
+    it "renders at the appropriate size" do
+      digit_renderer = DigitRenderer.new size: 3
+      digit = Digit.new [true, false, true, true, true, false, true]
+      expect(digit_renderer.render digit).to eq [
+        " --- ",
+        "    |",
+        "    |",
+        "    |",
+        " --- ",
+        "|    ",
+        "|    ",
+        "|    ",
+        " --- ",
+      ]
+    end
   end
 end

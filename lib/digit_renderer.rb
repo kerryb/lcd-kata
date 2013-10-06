@@ -1,4 +1,8 @@
 class DigitRenderer
+  def initialize size: 1
+    @size = size
+  end
+
   def render digit
     top = digit.segments[0] ? "-" : " "
     top_left = digit.segments[1] ? "|" : " "
@@ -9,11 +13,11 @@ class DigitRenderer
     bottom  = digit.segments[6] ? "-" : " "
 
     [
-      " #{top} ",
-      "#{top_left} #{top_right}",
-      " #{middle} ",
-      "#{bottom_left} #{bottom_right}",
-      " #{bottom} ",
-    ]
+      " #{top * @size} ",
+      ["#{top_left}#{" " * @size}#{top_right}"] * @size,
+      " #{middle * @size} ",
+      ["#{bottom_left}#{" " * @size}#{bottom_right}"] * @size,
+      " #{bottom * @size} ",
+    ].flatten
   end
 end

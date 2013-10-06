@@ -20,4 +20,17 @@ describe Lcd do
 .....-...-.......-...-.......-...-...-.
     EOF
   end
+
+  it "accepts a size option" do
+    lcd = Lcd.new size: 2
+    expect(lcd.display 123).to eq <<-EOF.gsub ".", " "
+.... .--. .--.
+...| ...| ...|
+...| ...| ...|
+.... .--. .--.
+...| |... ...|
+...| |... ...|
+.... .--. .--.
+    EOF
+  end
 end

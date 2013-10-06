@@ -1,7 +1,7 @@
 require "digit_renderer"
 
 class Renderer
-  def initialize digit_renderer: DigitRenderer.new
+  def initialize size: 1, digit_renderer: DigitRenderer.new(size: size)
     @digit_renderer = digit_renderer
   end
 
